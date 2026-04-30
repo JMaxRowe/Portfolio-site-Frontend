@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import CreateProject from './pages/CreateProject'
 import EditProject from './pages/EditProject'
 import Account from './pages/Account'
+import PrivateRoute from './components/PrivateRoute'
 
 function App() {
   return (
@@ -16,9 +17,9 @@ function App() {
       <Route path="/portfolio" element={<Portfolio/>} />
       <Route path="/projects/:slug" element={<ProjectDetail/>} />
       <Route path="/login" element={<Login/>} />
-      <Route path="/admin/projects/create" element={<CreateProject/>} />
-      <Route path="/admin/projects/:slug/edit" element={<EditProject/>} />
-      <Route path="/admin/account" element={<Account/>} />
+      <Route path="/admin/projects/create" element={<PrivateRoute><CreateProject/></PrivateRoute>} />
+      <Route path="/admin/projects/:slug/edit" element={<PrivateRoute><EditProject/></PrivateRoute>} />
+      <Route path="/admin/account" element={<PrivateRoute><Account/></PrivateRoute>} />
     </Routes>
   )
 }
